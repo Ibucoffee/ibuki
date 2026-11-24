@@ -17,9 +17,15 @@ function balloon(t, x, y){
 
   push();
 
-  // BLANK[1] 吹き出しの背景を先に描く
+    noStroke();
+  fill(0, 120, 200);                       // 背景色(濃い青)。好きな濃い色でOK
+  rect(x, y, w + p * 2, h + p * 2, 4);     // 左上が(x, y)、幅と高さは余白込み。最後の4は角の丸み// BLANK[1] 吹き出しの背景を先に描く
 
-  // BLANK[2] 吹き出しの三角形を描く
+    const bx = x + (w + p * 2) / 2;    // 吹き出しの横の真ん中
+  const by = y + h + p * 2;          // 吹き出しの下の辺
+  triangle(bx - 6, by,               // 左の点
+           bx + 6, by,               // 右の点
+           bx,     by + 10);         // 下にとがった点// BLANK[2] 吹き出しの三角形を描く
 
   // 吹き出しのテキストを次に描く
   textAlign(LEFT, CENTER);
